@@ -635,22 +635,23 @@ async def send_all(bot, userid, files, ident):
         if f_caption is None:
             f_caption = f"{title}"
         try:
-            await bot.send_cached_media(
-                chat_id=userid,
-                file_id=file.file_id,
-                caption=f_caption,
-                protect_content=True if ident == "filep" else False,
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                        InlineKeyboardButton('Support bot', url=GRP_LNK),
-                        InlineKeyboardButton('Updates Channel', url=CHNL_LNK)
-                    ],[
-                        InlineKeyboardButton("Bot Owner", url="t.me/thiyaku17")
-                        ]
-                    ]
-                )
-            )
+                    #@Ai_2Movies_Bot = @Ai_2Movies_Bot
+                    g =f"https://telegram.dog/CentralFilter3bot?start=file_{file.file_id}"
+                    g = get_shortlink(userid,g)
+                    await client.send_message(
+                    chat_id=userid,
+                   text =f'<code>==>Title : {title}\n\n</code><b>==>Caption :{f_caption}\n\n==>File_Size : {size}</b>',reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('📥 File Download Link 📥 - Dulink', url=g)
+                ],
+                [
+                    InlineKeyboardButton('📁 File to Direct Link 📁', url='https://t.me/How_To_Download_OR_Online_Watch/10')
+                ],
+                [
+                    InlineKeyboardButton('🤔 How to Download 🤔', url='https://youtu.be/')
+                ]]))
+                
         except UserIsBlocked:
             logger.error(f"User: {userid} Blocked the bot. Kindly Unblock the bot")
             return "User kindly Unblock the bot to get the movie files"
