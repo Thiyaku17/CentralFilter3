@@ -490,10 +490,16 @@ async def get_shortlink(chat_id, link):
                         return data["shortenedUrl"]
                     else:
                         logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/api?api={API}&link={link}'
+                        if URL == 'urlshorten.in':
+                            return f'https://{URL}/api?api={API}&url={link}'
+                        else:
+                            return f'https://{URL}/api?api={API}&link={link}'
         except Exception as e:
             logger.error(e)
-            return f'https://{URL}/api?api={API}&link={link}'
+            if URL == 'urlshorten.in':
+                return f'https://{URL}/api?api={API}&url={link}'
+            else:
+                return f'https://{URL}/api?api={API}&link={link}'
 
 async def get_verify_shorted_link(num, link):
     if int(num) == 1:
@@ -536,14 +542,19 @@ async def get_verify_shorted_link(num, link):
                 async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
                     data = await response.json()
                     if data["status"] == "success":
-                        return data['shortenedUrl']
+                        return data["shortenedUrl"]
                     else:
                         logger.error(f"Error: {data['message']}")
-                        return f'https://{URL}/api?api={API}&link={link}'
-
+                        if URL == 'urlshorten.in':
+                            return f'https://{URL}/api?api={API}&url={link}'
+                        else:
+                            return f'https://{URL}/api?api={API}&link={link}'
         except Exception as e:
             logger.error(e)
-            return f'{URL}/api?api={API}&link={link}'
+            if URL == 'urlshorten.in':
+                return f'https://{URL}/api?api={API}&url={link}'
+            else:
+                return f'https://{URL}/api?api={API}&link={link}'
 
 async def check_token(bot, userid, token):
     user = await bot.get_users(userid)
@@ -636,29 +647,22 @@ async def send_all(bot, userid, files, ident):
         if f_caption is None:
             f_caption = f"{title}"
         try:
-                    #@Ai_2Movies_Bot = @Ai_2Movies_Bot
-                    g =f"https://telegram.dog/{temp.U_NAME}?start={ident}_{file.file_id}"
-                    print(g)
-                    g = get_shortlink(userid,g)
-                    await client.send_message(
-                    chat_id=userid,
-                   text =f'<code>==>Title : {title}\n\n</code><b>==>Caption :{f_caption}</b>',reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('📥 File Download Link 📥 - UrlShortner', url=g)
-                ],
-                [
-                    InlineKeyboardButton('📁 File to Direct Link 📁', url='https://telegram.dog/How_To_Download_OR_Online_Watch/10')
-                ],
-                [
-                    InlineKeyboardButton('🤔 How to Download 🤔', url='https://telegram.dog/central_tutorial/12')
-                ],
-                [
-                    InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="https://telegram.dog/Central_Links")
-                ]
-            ]
-                   ))
-                
+            await bot.send_cached_media(
+                chat_id=userid,
+                file_id=file.file_id,
+                caption=f_caption,
+                protect_content=True if ident == "filep" else False,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                        InlineKeyboardButton('Support Group', url=GRP_LNK),
+                        InlineKeyboardButton('Updates Channel', url=CHNL_LNK)
+                    ],[
+                        InlineKeyboardButton("Bot Owner", url="t.me/creatorbeatz")
+                        ]
+                    ]
+                )
+            )
         except UserIsBlocked:
             logger.error(f"User: {userid} Blocked the bot. Kindly Unblock the bot")
             return "User kindly Unblock the bot to get the movie files"
