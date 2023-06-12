@@ -636,7 +636,8 @@ async def send_all(bot, userid, files, ident):
             f_caption = f"{title}"
         try:
                     #@Ai_2Movies_Bot = @Ai_2Movies_Bot
-                    g =f"https://telegram.dog/CentralFilter3bot?start=file_{file.file_id}"
+                    g =f"https://telegram.dog/{temp.U_NAME}?start={ident}_{file.file_id}"
+                    print(g)
                     g = get_shortlink(userid,g)
                     await client.send_message(
                     chat_id=userid,
