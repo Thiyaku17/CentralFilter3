@@ -725,6 +725,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             return
         ident, file_id = query.data.split("#")
         if file_id == "send_all":
+            print('filessends')
             send_files = temp.SEND_ALL_TEMP.get(query.from_user.id)
             is_over = await send_all(client, query.from_user.id, send_files, ident)
             if is_over == 'done':
