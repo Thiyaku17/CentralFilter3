@@ -154,7 +154,7 @@ async def broadcast_messages(user_id, message):
         return await broadcast_messages(user_id, message)
     except InputUserDeactivated:
         await db.delete_user(int(user_id))
-        logging.info(f"{user_id} - Removed from Database.Since Deleted Account.")
+        logging.info(f"{user_id} - Removed from Database, Since Deleted Account.")
         return False, "Deleted"
     except UserIsBlocked:
         logging.info(f"{user_id} - Blocked the Bot")
@@ -589,7 +589,7 @@ async def send_all(bot, userid, files, ident):
         try:
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Make Sure Bot is Admin in Forcesun Channel")
+            logger.error("Make Sure Bot is Admin in ForceSub Channel")
             return
         if ident == 'filep' or 'checksubp':
             pre = 'checksubp'
@@ -610,12 +610,13 @@ async def send_all(bot, userid, files, ident):
     
     if IS_VERIFY and not await check_verification(bot, userid):
         btn = [[
-            InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(bot, userid, f"https://telegram.me/{temp.U_NAME}?start=", 'send_all'))
+            InlineKeyboardButton("Verify", url=await get_token(bot, userid, f"https://telegram.me/{temp.U_NAME}?start=", 'send_all')),
+            InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
         ]]
         await bot.send_message(
             chat_id=userid,
-            text="<b>You are not verified\nKindly verify to continue so that you can get access of unlimited movies until 12 Hours from now</b>. ",
-            protect_content=True,
+            text="<b>You are not verified\n\nKindly verify to continue so that you can get access of unlimited movies until 12 Hours from now</b>.",
+            protect_content=True if PROTECT_CONTENT else False,
             reply_markup=InlineKeyboardMarkup(btn)
         )
         return 'verify'
@@ -641,17 +642,22 @@ async def send_all(bot, userid, files, ident):
                     g = get_shortlink(userid,g)
                     await client.send_message(
                     chat_id=userid,
-                   text =f'<code>==>Title : {title}\n\n</code><b>==>Caption :{f_caption}\n\n==>File_Size : {size}</b>',reply_markup=InlineKeyboardMarkup(
+                   text =f'<code>==>Title : {title}\n\n</code><b>==>Caption :{f_caption}</b>',reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('📥 File Download Link 📥 - Dulink', url=g)
+                    InlineKeyboardButton('📥 File Download Link 📥 - UrlShortner', url=g)
                 ],
                 [
-                    InlineKeyboardButton('📁 File to Direct Link 📁', url='https://t.me/How_To_Download_OR_Online_Watch/10')
+                    InlineKeyboardButton('📁 File to Direct Link 📁', url='https://telegram.dog/How_To_Download_OR_Online_Watch/10')
                 ],
                 [
-                    InlineKeyboardButton('🤔 How to Download 🤔', url='https://youtu.be/')
-                ]]))
+                    InlineKeyboardButton('🤔 How to Download 🤔', url='https://telegram.dog/central_tutorial/12')
+                ],
+                [
+                    InlineKeyboardButton("Bᴏᴛ Oᴡɴᴇʀ", url="https://telegram.dog/Central_Links")
+                ]
+            ]
+                   ))
                 
         except UserIsBlocked:
             logger.error(f"User: {userid} Blocked the bot. Kindly Unblock the bot")
