@@ -22,16 +22,16 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ', url=CHNL_LNK),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ ⌬', url=GRP_LNK)
+                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
+                    InlineKeyboardButton('Support ⌬', url='https://telegram.dog/centralrequest')
                 ],[
-                    InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('Aʙᴏᴜᴛ ⍟', callback_data='about')
+                    InlineKeyboardButton('〄 Help', callback_data='help'),
+                    InlineKeyboardButton('About ⍟', callback_data='about')
                 ],[
-                    InlineKeyboardButton('♚ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data')
+                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
+                    InlineKeyboardButton('Close ✘', callback_data='close_data')
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -52,16 +52,19 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
+                 ],
+                 [
+                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ', url=CHNL_LNK),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ ⌬', url=GRP_LNK)
+                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
+                    InlineKeyboardButton('Support ⌬',url='https://telegram.dog/centralrequest')
                 ],[
-                    InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('Aʙᴏᴜᴛ ⍟', callback_data='about')
+                    InlineKeyboardButton('〄 Help', callback_data='help'),
+                    InlineKeyboardButton('About ⍟', callback_data='about')
                 ],[
-                    InlineKeyboardButton('♚ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data')
+                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
+                    InlineKeyboardButton('Close ✘', callback_data='close_data')
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -76,12 +79,12 @@ async def start(client, message):
         try:
             invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         except ChatAdminRequired:
-            logger.error("Mᴀᴋᴇ sᴜʀᴇ Bᴏᴛ ɪs ᴀᴅᴍɪɴ ɪɴ Fᴏʀᴄᴇsᴜʙ ᴄʜᴀɴɴᴇʟ")
+            logger.error("Make sure bot is Admin in Updates Channel")
             return
         btn = [
             [
                 InlineKeyboardButton(
-                    "❆ Jᴏɪɴ Oᴜʀ Bᴀᴄᴋ-Uᴘ Cʜᴀɴɴᴇʟ ❆", url=invite_link.invite_link
+                    "❆ Join Our Updates Channel ❆", url=invite_link.invite_link
                 )
             ]
         ]
@@ -90,28 +93,31 @@ async def start(client, message):
             try:
                 kk, file_id = message.command[1].split("_", 1)
                 pre = 'checksubp' if kk == 'filep' else 'checksub' 
-                btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", callback_data=f"{pre}#{file_id}")])
+                btn.append([InlineKeyboardButton("↻ Try Again", callback_data=f"{pre}#{file_id}")])
             except (IndexError, ValueError):
                 btn.append([InlineKeyboardButton("↻ Tʀʏ Aɢᴀɪɴ", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
         await client.send_message(
             chat_id=message.from_user.id,
-            text="**எனது அப்டேட்ஸ் சேனலில் சேராமல் நீங்கள் எந்த கோப்பையும் பெற மாட்டீர்கள்... !! இப்போதே சேர்ந்து மீண்டும் முயற்சிக்கவும்\n\nWɪᴛʜᴏᴜᴛ Jᴏɪɴɪɴɢ Mʏ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ Yᴏᴜ Wɪʟʟ Nᴏᴛ Gᴇᴛ Aɴʏ Fɪʟᴇ... !! Pʟᴇᴀsᴇ Jᴏɪɴ Nᴏᴡ & Tʀʏ Aɢᴀɪɴ**",
+            text="**எனது அப்டேட்ஸ் சேனலில் சேராமல் நீங்கள் எந்த கோப்பையும் பெற மாட்டீர்கள்... !! இப்போதே சேர்ந்து மீண்டும் முயற்சிக்கவும்\n\nYou are not the member of our @Central_Links Community's Update Channel that is given below so you Don't get the movie file ...\n\nIf you want the movie file, CLICK on then '❆ Join our Updates Channel ❆' Button below and after joining our updates channel, then click on the '↻ Try Again' Button below...\n\nThen You will get the movie files.**",
             reply_markup=InlineKeyboardMarkup(btn),
             parse_mode=enums.ParseMode.MARKDOWN
             )
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                    InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
+                 ],
+                 [
+                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('✇ Uᴘᴅᴀᴛᴇs ', url=CHNL_LNK),
-                    InlineKeyboardButton('Sᴜᴘᴘᴏʀᴛ ⌬', url=GRP_LNK)
+                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
+                    InlineKeyboardButton('Support ⌬', url='https://telegram.dog/centralrequest')
                 ],[
-                    InlineKeyboardButton('〄 Hᴇʟᴘ', callback_data='help'),
-                    InlineKeyboardButton('Aʙᴏᴜᴛ ⍟', callback_data='about')
+                    InlineKeyboardButton('〄 Help', callback_data='help'),
+                    InlineKeyboardButton('About ⍟', callback_data='about')
                 ],[
-                    InlineKeyboardButton('♚ Bᴏᴛ Oᴡɴᴇʀ', callback_data="owner_info"),
-                    InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data')
+                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
+                    InlineKeyboardButton('Close ✘', callback_data='close_data')
                   ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -129,7 +135,7 @@ async def start(client, message):
         file_id = data
         pre = ""
     if data.split("-", 1)[0] == "BATCH":
-        sts = await message.reply("<b>Pʟᴇᴀsᴇ ᴡᴀɪᴛ...</b>")
+        sts = await message.reply("<b>Please Wait</b>")
         file_id = data.split("-", 1)[1]
         msgs = BATCH_FILES.get(file_id)
         if not msgs:
@@ -138,8 +144,8 @@ async def start(client, message):
                 with open(file) as file_data:
                     msgs=json.loads(file_data.read())
             except:
-                await sts.edit("Fᴀɪʟᴇᴅ")
-                return await client.send_message(LOG_CHANNEL, "Uɴᴀʙʟᴇ Tᴏ Oᴘᴇɴ Fɪʟᴇ.")
+                await sts.edit("Failed")
+                return await client.send_message(LOG_CHANNEL, "Unable to open file")
             os.remove(file)
             BATCH_FILES[file_id] = msgs
         for msg in msgs:
@@ -160,7 +166,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Sʜᴀʀᴇ & Sᴜᴘᴘᴏʀᴛ Us ◂', url=(CHNL_LNK)) ] ] ),
+                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Share & Support us ◂', url='https://telegram.dog/Central_Links') ] ] ),
                 )
             except FloodWait as e:
                 await asyncio.sleep(e.x)
@@ -170,7 +176,7 @@ async def start(client, message):
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
-                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Sʜᴀʀᴇ & Sᴜᴘᴘᴏʀᴛ Us ◂', url=(CHNL_LNK)) ] ] ),
+                    reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Share & Support us ◂', url='https://telegram.dog/Central_Links') ] ] ),
                 )
             except Exception as e:
                 logger.warning(e, exc_info=True)
@@ -229,14 +235,14 @@ async def start(client, message):
         fileid = data.split("-", 3)[3]
         if str(message.from_user.id) != str(userid):
             return await message.reply_text(
-                text="<b>Iɴᴠᴀʟɪᴅ ʟɪɴᴋ ᴏʀ Exᴘɪʀᴇᴅ ʟɪɴᴋ !</b>",
-                protect_content=True
+                text="<b>Invalid Link or Expired Link !</b>",
+                protect_content=True if PROTECT_CONTENT else False
             )
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
             if fileid == "send_all":
                 btn = [[
-                    InlineKeyboardButton("Gᴇᴛ Fɪʟᴇ", callback_data=f"checksub#send_all")
+                    InlineKeyboardButton("Get File", callback_data=f"checksub#send_all")
                 ]]
                 await verify_user(client, userid, token)
                 await message.reply_text(
