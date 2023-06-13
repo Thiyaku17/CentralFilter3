@@ -10,7 +10,7 @@ from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
 
-#BOT_START_TIME = time.time()
+BOT_START_TIME = time.time()
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -58,7 +58,7 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply_video(
-                                                 video=(MELCOW_VID),
+                                                 video="https://telegra.ph/file/03691465baa774e46506d.mp4"),
                                                  caption=f'<b>ʜᴇʏ, {u.mention} 👋🏻\nWelcome to your group {message.chat.title}\n\nYou can find Movies/Series/Animes etc from here. Enjoy😉.\n\n<b>┏≫ Follow group rules</b>\n┣ <b>Main Channel ›› @Central_links</b></code>\n<b>┗≫ Follow group rules</b>',
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
