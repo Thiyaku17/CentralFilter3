@@ -246,7 +246,7 @@ async def start(client, message):
                 ]]
                 await verify_user(client, userid, token)
                 await message.reply_text(
-                    text=f"<b>Hᴇʏ {message.from_user.mention}, Yᴏᴜ ᴀʀᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ᴠᴇʀɪғɪᴇᴅ !\nNᴏᴡ ʏᴏᴜ ʜᴀᴠᴇ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss ғᴏʀ ᴀʟʟ ᴍᴏᴠɪᴇs ᴛɪʟʟ ᴛʜᴇ ɴᴇxᴛ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴡʜɪᴄʜ ɪs ᴀғᴛᴇʀ 12 ʜᴏᴜʀs ғʀᴏᴍ ɴᴏᴡ.</b>",
+                    text=f"<b>Hey {message.from_user.mention}, You are successfully verified!\nNow you have unlimited access for all movies till the next verification which is 12 Hours from now.</b>",
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
@@ -255,16 +255,16 @@ async def start(client, message):
                 InlineKeyboardButton("Get File", url=f"https://telegram.me/{temp.U_NAME}?start=files_{fileid}")
             ]]
             await message.reply_text(
-                text=f"<b>Hᴇʏ {message.from_user.mention}, Yᴏᴜ ᴀʀᴇ sᴜᴄᴄᴇssғᴜʟʟʏ ᴠᴇʀɪғɪᴇᴅ !\nNᴏᴡ ʏᴏᴜ ʜᴀᴠᴇ ᴜɴʟɪᴍɪᴛᴇᴅ ᴀᴄᴄᴇss ғᴏʀ ᴀʟʟ ᴍᴏᴠɪᴇs ᴛɪʟʟ ᴛʜᴇ ɴᴇxᴛ ᴠᴇʀɪғɪᴄᴀᴛɪᴏɴ ᴡʜɪᴄʜ ɪs ᴀғᴛᴇʀ 12 ʜᴏᴜʀs ғʀᴏᴍ ɴᴏᴡ.</b>",
-                protect_content=True,
+                text=f"<b>Hey {message.from_user.mention}, You are successfully verified!\nNow you have unlimited access for all movies till the next verification which is 12 Hours from now.</b>",
+                protect_content=True if PROTECT_CONTENT else False,
                 reply_markup=InlineKeyboardMarkup(btn)
             )
             await verify_user(client, userid, token)
             return
         else:
             return await message.reply_text(
-                text="<b>Iɴᴠᴀʟɪᴅ ʟɪɴᴋ ᴏʀ Exᴘɪʀᴇᴅ ʟɪɴᴋ !</b>",
-                protect_content=True
+                text="<b>Invalid link or Expired Link !</b>",
+                protect_content=True if PROTECT_CONTENT else False
             )
 
     files_ = await get_file_details(file_id)           
@@ -273,10 +273,10 @@ async def start(client, message):
         try:
             if IS_VERIFY and not await check_verification(client, message.from_user.id):
                 btn = [[
-                    InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id))
+                    InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id))
                 ]]
                 await message.reply_text(
-                    text="<b>Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪғɪᴇᴅ!\nKɪɴᴅʟʏ ᴠᴇʀɪғʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ Sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ᴀᴄᴄᴇss ᴛᴏ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs ᴜɴᴛɪʟ 12 ʜᴏᴜʀs ғʀᴏᴍ ɴᴏᴡ !</b>",
+                    text="<b>You are not verified\n\nKindly verify to continue so that you can get access of unlimited movies until 12 Hours from now</b>.",
                     protect_content=True,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
@@ -284,7 +284,7 @@ async def start(client, message):
             msg = await client.send_cached_media(
                 chat_id=message.from_user.id,
                 file_id=file_id,
-                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Sʜᴀʀᴇ & Sᴜᴘᴘᴏʀᴛ Us ◂', url=(CHNL_LNK)) ] ] ),
+                reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Share & Support Us ◂', url='https://telegram.dog/Central_Links') ] ] ),
                 protect_content=True if pre == 'filep' else False,
                 )
             filetype = msg.media
@@ -301,7 +301,7 @@ async def start(client, message):
             return
         except:
             pass
-        return await message.reply('Nᴏ sᴜᴄʜ ғɪʟᴇ ᴇxɪsᴛ.')
+        return await message.reply('No Such File Exist.')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
@@ -316,10 +316,10 @@ async def start(client, message):
         f_caption = f"{files.file_name}"
     if IS_VERIFY and not await check_verification(client, message.from_user.id):
         btn = [[
-            InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id))
+            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{temp.U_NAME}?start=", file_id))
         ]]
         await message.reply_text(
-            text="<b>Yᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴠᴇʀɪғɪᴇᴅ!\nKɪɴᴅʟʏ ᴠᴇʀɪғʏ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ Sᴏ ᴛʜᴀᴛ ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ᴀᴄᴄᴇss ᴛᴏ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏᴠɪᴇs ᴜɴᴛɪʟ 12 ʜᴏᴜʀs ғʀᴏᴍ ɴᴏᴡ !</b>",
+            text="<b>You are not verified\n\nKindly verify to continue so that you can get access of unlimited movies until 12 Hours from now!</b>.",
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(btn)
         )
@@ -328,7 +328,7 @@ async def start(client, message):
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
-        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Sʜᴀʀᴇ & Sᴜᴘᴘᴏʀᴛ Us ◂', url=(CHNL_LNK)) ] ] ),
+        reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Share & Support Us ◂', url='https://telegram.dog/Central_Links') ] ] ),
         protect_content=True if pre == 'filep' else False,
         )
                     
@@ -342,9 +342,9 @@ async def channel_info(bot, message):
     elif isinstance(CHANNELS, list):
         channels = CHANNELS
     else:
-        raise ValueError("Uɴᴇxᴘᴇᴄᴛᴇᴅ ᴛʏᴘᴇ ᴏғ CHANNELS")
+        raise ValueError("Unexpected Type of Channels")
 
-    text = '📑 **Iɴᴅᴇxᴇᴅ ᴄʜᴀɴɴᴇʟs/ɢʀᴏᴜᴘs**\n'
+    text = '📑 **Indexed Channels/Groups**\n'
     for channel in channels:
         chat = await bot.get_chat(channel)
         if chat.username:
@@ -377,9 +377,9 @@ async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
-        msg = await message.reply("Pʀᴏᴄᴇssɪɴɢ...⏳", quote=True)
+        msg = await message.reply("Processing...⏳", quote=True)
     else:
-        await message.reply('Rᴇᴘʟʏ ᴛᴏ ғɪʟᴇ ᴡɪᴛʜ /delete ᴡʜɪᴄʜ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴅᴇʟᴇᴛᴇ', quote=True)
+        await message.reply('**Reply to file with /delete which you want to delete**', quote=True)
         return
 
     for file_type in ("document", "video", "audio"):
@@ -387,7 +387,7 @@ async def delete(bot, message):
         if media is not None:
             break
     else:
-        await msg.edit('Tʜɪs ɪs ɴᴏᴛ sᴜᴘᴘᴏʀᴛᴇᴅ ғɪʟᴇ ғᴏʀᴍᴀᴛ')
+        await msg.edit('**This is not supported file format**')
         return
     
     file_id, file_ref = unpack_new_file_id(media.file_id)
@@ -396,7 +396,7 @@ async def delete(bot, message):
         '_id': file_id,
     })
     if result.deleted_count:
-        await msg.edit('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ')
+        await msg.edit('**File is successfully deleted from database**')
     else:
         file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
         result = await Media.collection.delete_many({
@@ -405,7 +405,7 @@ async def delete(bot, message):
             'mime_type': media.mime_type
             })
         if result.deleted_count:
-            await msg.edit('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ')
+            await msg.edit('**File is successfully deleted from database**')
         else:
             # files indexed before https://github.com/EvamariaTG/EvaMaria/commit/f3d2a1bcb155faf44178e5d7a685a1b533e714bf#diff-86b613edf1748372103e94cacff3b578b36b698ef9c16817bb98fe9ef22fb669R39 
             # have original file name.
@@ -415,25 +415,25 @@ async def delete(bot, message):
                 'mime_type': media.mime_type
             })
             if result.deleted_count:
-                await msg.edit('Fɪʟᴇ ɪs sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ғʀᴏᴍ ᴅᴀᴛᴀʙᴀsᴇ')
+                await msg.edit('**File is successfully deleted from database**')
             else:
-                await msg.edit('Fɪʟᴇ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴅᴀᴛᴀʙᴀsᴇ')
+                await msg.edit('**File not found in database**')
 
 
 @Client.on_message(filters.command('deleteall') & filters.user(ADMINS))
 async def delete_all_index(bot, message):
     await message.reply_text(
-        'Tʜɪs ᴡɪʟʟ ᴅᴇʟᴇᴛᴇ ᴀʟʟ ɪɴᴅᴇxᴇᴅ ғɪʟᴇs.\nDᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴄᴏɴᴛɪɴᴜᴇ ?',
+        'This will delete all indexed files.\nDo you want to continue ?',
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="Yᴇs", callback_data="autofilter_delete"
+                        text="Yes", callback_data="autofilter_delete"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="Cᴀɴᴄᴇʟ", callback_data="close_data"
+                        text="Cancel", callback_data="close_data"
                     )
                 ],
             ]
@@ -445,15 +445,15 @@ async def delete_all_index(bot, message):
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
     await Media.collection.drop()
-    await message.answer("Eᴠᴇʀʏᴛʜɪɴɢ's Gᴏɴᴇ")
-    await message.message.edit('Sᴜᴄᴄᴇsғᴜʟʟʏ Dᴇʟᴇᴛᴇᴅ Aʟʟ Tʜᴇ Iɴᴅᴇxᴇᴅ Fɪʟᴇs.')
+    await message.answer("Nothing is Permanent")
+    await message.message.edit('Successfully deleted all the indexed Files')
 
 
 @Client.on_message(filters.command('settings'))
 async def settings(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"Yᴏᴜ ᴀʀᴇ ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ. Usᴇ /connect {message.chat.id} ɪɴ PM")
+        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
 
     if chat_type == enums.ChatType.PRIVATE:
@@ -464,10 +464,10 @@ async def settings(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Mᴀᴋᴇ sᴜʀᴇ I'ᴍ ᴘʀᴇsᴇɴᴛ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ !", quote=True)
+                await message.reply_text("Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'ᴍ ɴᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ᴀɴʏ ɢʀᴏᴜᴘs !", quote=True)
+            await message.reply_text("I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -502,87 +502,87 @@ async def settings(client, message):
         buttons = [
             [
                 InlineKeyboardButton(
-                    'Fɪʟᴛᴇʀ Bᴜᴛᴛᴏɴ',
+                    'Filter Button',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Sɪɴɢʟᴇ' if settings["button"] else 'Dᴏᴜʙʟᴇ',
+                    'Single' if settings["button"] else 'Double',
                     callback_data=f'setgs#button#{settings["button"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Fɪʟᴇ Sᴇɴᴅ Mᴏᴅᴇ',
+                    'File Send Mode',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    'Mᴀɴᴜᴀʟ Sᴛᴀʀᴛ' if settings["botpm"] else 'Aᴜᴛᴏ Sᴇɴᴅ',
+                    'Manual Start' if settings["botpm"] else 'Aᴜᴛᴏ Sᴇɴᴅ',
                     callback_data=f'setgs#botpm#{settings["botpm"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Pʀᴏᴛᴇᴄᴛ Cᴏɴᴛᴇɴᴛ',
+                    'Protect Content',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["file_secure"] else '✘ Oғғ',
+                    '✔ ON' if settings["file_secure"] else '✘ Oғғ',
                     callback_data=f'setgs#file_secure#{settings["file_secure"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Iᴍᴅʙ',
+                    'IMDB',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["imdb"] else '✘ Oғғ',
+                    '✔ ON' if settings["imdb"] else '✘ Oғғ',
                     callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Sᴘᴇʟʟ Cʜᴇᴄᴋ',
+                    'Spell Check',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["spell_check"] else '✘ Oғғ',
+                    '✔ ON' if settings["spell_check"] else '✘ Oғғ',
                     callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Wᴇʟᴄᴏᴍᴇ Msɢ',
+                    'Welcome Message',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["welcome"] else '✘ Oғғ',
+                    '✔ ON' if settings["welcome"] else '✘ Oғғ',
                     callback_data=f'setgs#welcome#{settings["welcome"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Aᴜᴛᴏ-Dᴇʟᴇᴛᴇ',
+                    'Auto Delete',
                     callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '10 Mɪɴs' if settings["auto_delete"] else '✘ Oғғ',
+                    '10 Mins' if settings["auto_delete"] else '✘ Oғғ',
                     callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Aᴜᴛᴏ-Fɪʟᴛᴇʀ',
+                    'Auto Filter',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["auto_ffilter"] else '✘ Oғғ',
+                    '✔ ON' if settings["auto_ffilter"] else '✘ Oғғ',
                     callback_data=f'setgs#auto_ffilter#{settings["auto_ffilter"]}#{grp_id}',
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    'Mᴀx Bᴜᴛᴛᴏɴs',
+                    'MAX Buttons',
                     callback_data=f'setgs#max_btn#{settings["max_btn"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
@@ -592,25 +592,25 @@ async def settings(client, message):
             ],
             [
                 InlineKeyboardButton(
-                    'SʜᴏʀᴛLɪɴᴋ',
+                    'Shortner',
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
                 InlineKeyboardButton(
-                    '✔ Oɴ' if settings["is_shortlink"] else '✘ Oғғ',
+                    '✔ ON' if settings["is_shortlink"] else '✘ Oғғ',
                     callback_data=f'setgs#is_shortlink#{settings["is_shortlink"]}#{grp_id}',
                 ),
             ],
         ]
 
         btn = [[
-                InlineKeyboardButton("Oᴘᴇɴ Hᴇʀᴇ ↓", callback_data=f"opnsetgrp#{grp_id}"),
-                InlineKeyboardButton("Oᴘᴇɴ Iɴ PM ⇲", callback_data=f"opnsetpm#{grp_id}")
+                InlineKeyboardButton("Open Here ↓", callback_data=f"opnsetgrp#{grp_id}"),
+                InlineKeyboardButton("Open in PM ⇲", callback_data=f"opnsetpm#{grp_id}")
               ]]
 
         reply_markup = InlineKeyboardMarkup(buttons)
         if chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
             await message.reply_text(
-                text="<b>Dᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴏᴘᴇɴ sᴇᴛᴛɪɴɢs ʜᴇʀᴇ ?</b>",
+                text="<b>Do you want to open Settings here ?</b>",
                 reply_markup=InlineKeyboardMarkup(btn),
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
@@ -618,7 +618,7 @@ async def settings(client, message):
             )
         else:
             await message.reply_text(
-                text=f"<b>Cʜᴀɴɢᴇ Yᴏᴜʀ Sᴇᴛᴛɪɴɢs Fᴏʀ {title} As Yᴏᴜʀ Wɪsʜ ⚙</b>",
+                text=f"<b>Change Your Settings for {title} As Your Wish ⚙</b>",
                 reply_markup=reply_markup,
                 disable_web_page_preview=True,
                 parse_mode=enums.ParseMode.HTML,
