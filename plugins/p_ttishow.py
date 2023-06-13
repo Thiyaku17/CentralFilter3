@@ -89,12 +89,12 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Support', url=f'https://telegram.dog/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat,
-            text='<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
+            text='<b>Hello Friends,\nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b>',
             reply_markup=reply_markup,
         )
 
@@ -128,12 +128,12 @@ async def disable_chat(bot, message):
     await message.reply('Chat Successfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/{SUPPORT_CHAT}')
+            InlineKeyboardButton('Support', url=f'https://telegram.dog/{SUPPORT_CHAT}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
             chat_id=chat_, 
-            text=f'<b>Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support group.</b> \nReason : <code>{reason}</code>',
+            text=f'Hello Friends, \nMy admin has told me to leave from group so i go! If you wanna add me again contact my support Contact [@CentralLinks_Contactbot] for paid work.</b> \nReason : <code>{reason}</code>',
             reply_markup=reply_markup)
         await bot.leave_chat(chat_)
     except Exception as e:
@@ -159,32 +159,19 @@ async def re_enable_chat(bot, message):
     await message.reply("Chat Successfully re-enabled")
 
     
-@Client.on_message(filters.command("stats") & filters.incoming)
-async def start(client, message):
-        buttons = [[
-                    InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data'),
-                    InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='refrsh')
-                  ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
-        users = await db.total_users_count()
-        chats = await db.total_chat_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        cpu_usage = psutil.cpu_percent()
-        ram_usage = psutil.virtual_memory().percent
-        disk_usage = psutil.disk_usage('/').percent
-        currentTime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - BOT_START_TIME))
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.STATUS_TXT.format(total, users, chats, monsize, free, cpu_usage, ram_usage, disk_usage, currentTime),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+@Client.on_message(filters.command('stats') & filters.incoming)
+async def get_ststs(bot, message):
+    rju = await message.reply('Fetching stats..')
+    total_users = await db.total_users_count()
+    totl_chats = await db.total_chat_count()
+    files = await Media.count_documents()
+    size = await db.get_db_size()
+    free = 536870912 - size
+    size = get_size(size)
+    free = get_size(free)
+    await rju.edit(script.STATUS_TXT.format(files, total_users, totl_chats, size, free))
 
-@Client.on_callback_query()
+'''@Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         await query.message.delete()
@@ -215,7 +202,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.STATUS_TXT.format(total, users, chats, monsize, free, cpu_usage, ram_usage, disk_usage, currentTime),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )
+        )'''
 @Client.on_message(filters.command('invite') & filters.user(ADMINS))
 async def gen_invite(bot, message):
     if len(message.command) == 1:
@@ -287,7 +274,7 @@ async def unban_a_user(bot, message):
     except PeerIdInvalid:
         return await message.reply("This is an invalid user, make sure ia have met him before.")
     except IndexError:
-        return await message.reply("Thismight be a channel, make sure its a user.")
+        return await message.reply("This might be a channel, make sure its a user.")
     except Exception as e:
         return await message.reply(f'Error - {e}')
     else:
