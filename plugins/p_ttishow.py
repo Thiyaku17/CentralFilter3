@@ -10,7 +10,7 @@ from Script import script
 from pyrogram.errors import ChatAdminRequired
 import asyncio 
 
-BOT_START_TIME = time.time()
+#BOT_START_TIME = time.time()
 
 """-----------------------------------------https://t.me/GetTGLink/4179 --------------------------------------"""
 
@@ -30,7 +30,7 @@ async def save_group(bot, message):
             ]]
             reply_markup=InlineKeyboardMarkup(buttons)
             k = await message.reply(
-                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support..</b>',
+                text='<b>CHAT NOT ALLOWED 🐞\n\nMy admins has restricted me from working here ! If you want to know more about it contact support [@CentralLinks_Contactbot] for paid work..</b>',
                 reply_markup=reply_markup,
             )
 
@@ -41,8 +41,9 @@ async def save_group(bot, message):
             await bot.leave_chat(message.chat.id)
             return
         buttons = [[
-                    InlineKeyboardButton("﹄ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ﹃", url=CHNL_LNK)                  
-                  ]]
+            InlineKeyboardButton('ℹ️ Help', url=f"https://telegram.dog/{temp.U_NAME}?start=help"),
+            InlineKeyboardButton('📢 Updates', url='https://telegram.dog/central_links')
+        ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
@@ -58,12 +59,12 @@ async def save_group(bot, message):
                         pass
                 temp.MELCOW['welcome'] = await message.reply_video(
                                                  video=(MELCOW_VID),
-                                                 caption=(script.MELCOW_ENG.format(u.mention, message.chat.title)),
+                                                 caption=f'<b>ʜᴇʏ, {u.mention} 👋🏻\nWelcome to your group {message.chat.title}\n\nYou can find Movies/Series/Animes etc from here. Enjoy😉.\n\n<b>┏≫ Follow group rules</b>\n┣ <b>Main Channel ›› @Central_links</b></code>\n<b>┗≫ Follow group rules</b>',
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
                                                                            InlineKeyboardButton("﹄ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ﹃", url=CHNL_LNK)
                                                                         ],[
-                                                                           InlineKeyboardButton("✇ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ Mᴏᴠɪᴇs ? ✇", url="https://graph.org/How-To-Request--How-To-Download-From-TeamKXM-Group-05-30")
+                                                                           InlineKeyboardButton("✇ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ Mᴏᴠɪᴇs ? ✇", url="https://telegram.dog/central_tutorial/12")
                                                                          ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
