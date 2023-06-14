@@ -361,7 +361,7 @@ async def language_check(bot, query):
             InlineKeyboardButton("❗ How to Download ❗", url=f"https://telegram.dog/Central_tutorial/12")
         ])
         btn.insert(0, [
-            InlineKeyboardButton("﹄ Select Your Required Language ﹃", callback_data=f"select_lang#{req}")
+            InlineKeyboardButton("﹄ Select Your Required Language ﹃", callback_data=f"select_lang#{userid}")
         ])
         btn.insert(0, [
             InlineKeyboardButton("⚡ Check Bot PM ⚡", url=f"https://t.me/{temp.U_NAME}")
@@ -406,7 +406,7 @@ async def select_language(bot, query):
     if int(userid) not in [query.from_user.id, 0]:
         return await query.answer(script.ALRT_TXT.format(query.from_user.first_name), show_alert=True)
     btn = [[
-        InlineKeyboardButton("Select Your Desired Language ↓", callback_data=f"lang#{userid}#unknown")
+        InlineKeyboardButton("Select Your Requried Language ↓", callback_data=f"lang#{userid}#unknown")
     ],[
         InlineKeyboardButton("English", callback_data=f"lang#{userid}#eng"),
         InlineKeyboardButton("Tamil", callback_data=f"lang#{userid}#tam"),
@@ -787,8 +787,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
         if IS_VERIFY and not await check_verification(client, query.from_user.id):
             btn = [[
-                InlineKeyboardButton("Vᴇʀɪғʏ", url=await get_token(client, query.from_user.id, f"https://telegram.dog/{temp.U_NAME}?start=", file_id)),
-                InlineKeyboardButton("Hᴏᴡ Tᴏ Vᴇʀɪғʏ", url=HOW_TO_VERIFY)
+                InlineKeyboardButton("Verify", url=await get_token(client, query.from_user.id, f"https://telegram.dog/{temp.U_NAME}?start=", file_id)),
+                InlineKeyboardButton("How To Verify", url=HOW_TO_VERIFY)
             ]]
             await client.send_message(
                 chat_id=query.from_user.id,
@@ -804,7 +804,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             file_id=file_id,
             caption=f_caption,
             reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('▸ Share & Support Us ◂', url=(CHNL_LNK)) ] ] ),
-            protect_content=True if pre == 'filep' else False,
+            protect_content=True if ident == 'checksubp' else False,
             )
     elif query.data == "pages":
         await query.answer()
