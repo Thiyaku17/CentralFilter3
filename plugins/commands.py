@@ -22,17 +22,14 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[
-                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
-                    InlineKeyboardButton('Support ⌬', url='https://telegram.dog/centralrequest')
-                ],[
-                    InlineKeyboardButton('〄 Help', callback_data='help'),
-                    InlineKeyboardButton('About ⍟', callback_data='about')
-                ],[
-                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
-                    InlineKeyboardButton('Close ✘', callback_data='close_data')
-                  ]]
+            InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
+            ],[
+            InlineKeyboardButton('🎞 Main Channel', url='https://t.me/central_links'),
+            InlineKeyboardButton('Request Group 🔗', url='https://t.me/centralrequest')
+            ],[
+            InlineKeyboardButton('Support 💁', url='https://t.me/CentralLinks_Contactbot'),
+            InlineKeyboardButton('About ME 📬', callback_data='about')
+        ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -52,20 +49,14 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
-                 ],
-                 [
-                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
-                    InlineKeyboardButton('Support ⌬',url='https://telegram.dog/centralrequest')
-                ],[
-                    InlineKeyboardButton('〄 Help', callback_data='help'),
-                    InlineKeyboardButton('About ⍟', callback_data='about')
-                ],[
-                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
-                    InlineKeyboardButton('Close ✘', callback_data='close_data')
-                  ]]
+            InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
+            ],[
+            InlineKeyboardButton('🎞 Main Channel', url='https://t.me/central_links'),
+            InlineKeyboardButton('Request Group 🔗', url='https://t.me/centralrequest')
+            ],[
+            InlineKeyboardButton('Support 💁', url='https://t.me/CentralLinks_Contactbot'),
+            InlineKeyboardButton('About ME 📬', callback_data='about')
+        ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -105,20 +96,14 @@ async def start(client, message):
         return
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-                    InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
-                 ],
-                 [
-                    InlineKeyboardButton('⤬ Add Me to your Group ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-                ],[
-                    InlineKeyboardButton('✇ Updates ', url='https://telegram.dog/central_links'),
-                    InlineKeyboardButton('Support ⌬', url='https://telegram.dog/centralrequest')
-                ],[
-                    InlineKeyboardButton('〄 Help', callback_data='help'),
-                    InlineKeyboardButton('About ⍟', callback_data='about')
-                ],[
-                    InlineKeyboardButton('♚ Bot Owner', callback_data="owner_info"),
-                    InlineKeyboardButton('Close ✘', callback_data='close_data')
-                  ]]
+            InlineKeyboardButton('🔍 Search Movies/Series', switch_inline_query_current_chat='')
+            ],[
+            InlineKeyboardButton('🎞 Main Channel', url='https://t.me/central_links'),
+            InlineKeyboardButton('Request Group 🔗', url='https://t.me/centralrequest')
+            ],[
+            InlineKeyboardButton('Support 💁', url='https://t.me/CentralLinks_Contactbot'),
+            InlineKeyboardButton('About ME 📬', callback_data='about')
+        ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
