@@ -58,13 +58,13 @@ async def save_group(bot, message):
                     except:
                         pass
                 temp.MELCOW['welcome'] = await message.reply_video(
-                                                 video="https://telegra.ph/file/03691465baa774e46506d.mp4"),
-                                                 caption=f'<b>ʜᴇʏ, {u.mention} 👋🏻\nWelcome to your group {message.chat.title}\n\nYou can find Movies/Series/Animes etc from here. Enjoy😉.\n\n<b>┏≫ Follow group rules</b>\n┣ <b>Main Channel ›› @Central_links</b></code>\n<b>┗≫ Follow group rules</b>',
+                video="https://telegra.ph/file/03691465baa774e46506d.mp4",                                               
+                                                 caption=f'<b>Hey, {u.mention} 👋🏻\nWelcome to our group {message.chat.title}\n\nYou can find Movies / Series / Anime from here. Enjoyyy😉.\n\n<b>┏≫ Follow Group Rules</b>\n┣ <b>Main Channel›› @Central_links</b></code>\n<b>┗≫ Follow Group Rules</b>',
                                                  reply_markup=InlineKeyboardMarkup(
                                                                          [[
-                                                                           InlineKeyboardButton("﹄ Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ ﹃", url=CHNL_LNK)
+                                                                           InlineKeyboardButton("﹄ Join Updates Channel ﹃", url=CHNL_LNK)
                                                                         ],[
-                                                                           InlineKeyboardButton("✇ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ Mᴏᴠɪᴇs ? ✇", url="https://telegram.dog/central_tutorial/12")
+                                                                           InlineKeyboardButton("✇ How to Search Movies from our Group ? ✇", url="https://telegram.dog/central_tutorial/12")
                                                                          ]]
                                                  ),
                                                  parse_mode=enums.ParseMode.HTML
