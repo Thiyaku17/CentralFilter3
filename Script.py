@@ -1,83 +1,76 @@
 class script(object):
-    START_TXT = """<b>Hᴇʟʟᴏ {},
-Mʏ Nᴀᴍᴇ Is <a href=https://t.me/{}>{}</a>, 
+    START_TXT = """<b><b>Hello ... {} 👋
+✯ My Name is <a href=https://telegram.dog/{}>{}</a>
+✯ I Can Provide MOVIES,SERIES And Lot More
+✯ Don't Waste Your Time Looking To Add ME To Your Group , I'm Only For @CentralRequest.
+If you need this bot it's paid of cost.. if required DM to @CentralLinks_Contactbot
+✯ TEAM - @Central_Links</b>"""
 
-I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇs, Jᴜsᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aɴᴅ Eɴᴊᴏʏ 😍</b>"""
+    HELP_TXT = """<b>Hey {}
+Here Is The Help For My Channel</b>"""
 
-    HELP_TXT = """<b>Rᴏʟᴇx Aᴠᴀᴀɴ Pᴇʀᴜ {}
-Hᴇʀᴇ Is Tʜᴇ Hᴇʟᴘ Fᴏʀ Mʏ Cᴏᴍᴍᴀɴᴅs.</b>"""
-
-    ABOUT_TXT =  """<b>✯ Mʏ Nᴀᴍᴇ: {}
-✯ Cʀᴇᴀᴛᴏʀ: <a href='https://t.me/Abt_Kristy'>Kʀɪsᴛʏ கிறிஸ்டி | 🇮🇳 |</a>
-✯ Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
-✯ Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
-✯ DᴀᴛᴀBᴀsᴇ: <a href='https://www.mongodb.com/'>MᴏɴɢᴏDB</a>
-✯ Bᴏᴛ Sᴇʀᴠᴇʀ: <a href='https://app.koyeb.com/'>Kᴏʏᴇʙ</a>
-✯ Bᴜɪʟᴅ Sᴛᴀᴛᴜs: v2.7.1 [ KX ]</b>"""
+    ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: {}
+✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: <a href=https://telegram.dog/central_links>Team CENTRAL LINKS</a>
+✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
+✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹.12
+✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
+✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
+✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: V3.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
 
 
-    SOURCE_TXT =  """<b>ɴᴏᴛᴇ :
+    SOURCE_TXT = """<b>NOTE:</b>
+- Central Request is a open source project. 
+- Source - <a href=https://telegram.dog/Central_links>CLICK HERE</a>
+<b>DEVS:</b>
+- <a href=https://telegram.dog/thiyaku_17>Team CENTRAL LINKS</a>"""
 
-⚠️Tʜɪꜱ Bᴏᴛ Iꜱ Aɴ Oᴘᴇɴ Sᴏᴜʀᴄᴇ Pʀᴏᴊᴇᴄᴛ
+    MANUELFILTER_TXT = """Help: <b>Filters</b>
+- CENTRAL FILTER is the feature were users can get automated replies for a particular keyword and Central Filter will respond whenever a keyword is found the message
+<b>NOTE:</b>
+1. CENTRAL FILTER should have admin privilege.
+2. only ADMINS can add filters in a chat.
+3. alert buttons have a limit of 64 characters.
+<b>Commands and Usage:</b>
+• /filter - <code>add a filter in chat</code>
+• /filters - <code>list all the filters of a chat</code>
+• /del - <code>delete a specific filter in chat</code>
+• /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
+    BUTTON_TXT = """Help: <b>Buttons</b>
+- CENTRAL FILTER Supports both url and alert inline buttons.
+<b>NOTE:</b>
+1. Telegram will not allows you to send buttons without any content, so content is mandatory.
+2. CENTRAL FILTER supports buttons with any telegram media type.
+3. Buttons should be properly parsed as markdown format
+<b>URL buttons:</b>
+<code>[Button Text](buttonurl:https://telegram.dog/Central_links)</code>
+<b>Alert buttons:</b>
+<code>[Button Text](buttonalert:This is an alert message)</code>"""
+    AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
+<b>NOTE:</b>
+1. Make me the admin of your channel if it's private.
+2. make sure that your channel does not contains porn and fake files.
+3. Forward the last message to me with quotes.
+ I'll add all the files in that channel to my db."""
 
-▸ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ : [ʜᴇʀᴇ](https://telegram.dog/Abt_Kristy)
-▸ Iꜰ Yᴏᴜ Wᴀɴᴛ LɪᴋE Tʜɪꜱ Bᴏᴛ Cᴏɴᴛᴀᴄᴛ Mᴇ..!!
+    CONNECTION_TXT = """Help: <b>Connections</b>
+- Used to connect bot to PM for managing filters 
+- it helps to avoid spamming in groups.
+<b>NOTE:</b>
+1. Only admins can add a connection.
+2. Send <code>/connect</code> for connecting me to ur PM
+<b>Commands and Usage:</b>
+• /connect  - <code>connect a particular chat to your PM</code>
+• /disconnect  - <code>disconnect from a chat</code>
+• /connections - <code>list all your connections</code>"""
 
-▸ Dᴇᴠ : Kʀɪsᴛʏ கிறிஸ்டி | 🇮🇳 |</b>"""
-
-    MANUELFILTER_TXT = """ʜᴇʟᴘ: <b>ꜰɪʟᴛᴇʀꜱ</b>
-- ꜰɪʟᴛᴇʀ ɪꜱ ᴀ ꜰᴇᴀᴛᴜʀᴇ ᴡᴇʀᴇ ᴜꜱᴇʀꜱ ᴄᴀɴ ꜱᴇᴛ ᴀᴜᴛᴏᴍᴀᴛᴇᴅ ʀᴇᴘʟɪᴇꜱ ꜰᴏʀ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴋᴇʏᴡᴏʀᴅ ᴀɴᴅ ɪ ᴡɪʟʟ ʀᴇꜱᴘᴏɴᴅ ᴡʜᴇɴᴇᴠᴇʀ ᴀ ᴋᴇʏᴡᴏʀᴅ ɪꜱ ꜰᴏᴜɴᴅ ɪɴ ᴛʜᴇ ᴍᴇꜱꜱᴀɢᴇ
-<b>ɴᴏᴛᴇ:</b>
-1. ᴛʜɪꜱ ʙᴏᴛ ꜱʜᴏᴜʟᴅ ʜᴀᴠᴇ ᴀᴅᴍɪɴ ᴘʀɪᴠɪʟᴇɢᴇ.
-2. ᴏɴʟʏ ᴀᴅᴍɪɴꜱ ᴄᴀɴ ᴀᴅᴅ ꜰɪʟᴛᴇʀꜱ ɪɴ ᴀ ᴄʜᴀᴛ.
-3. ᴀʟᴇʀᴛ ʙᴜᴛᴛᴏɴꜱ ʜᴀᴠᴇ ᴀ ʟɪᴍɪᴛ ᴏꜰ 64 ᴄʜᴀʀᴀᴄᴛᴇʀꜱ.
-Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
-• /filter - <code>ᴀᴅᴅ ᴀ ꜰɪʟᴛᴇʀ ɪɴ ᴀ ᴄʜᴀᴛ</code>
-• /filters - <code>ʟɪꜱᴛ ᴀʟʟ ᴛʜᴇ ꜰɪʟᴛᴇʀꜱ ᴏꜰ ᴀ ᴄʜᴀᴛ</code>
-• /del - <code>ᴅᴇʟᴇᴛᴇ ᴀ ꜱᴘᴇᴄɪꜰɪᴄ ꜰɪʟᴛᴇʀ ɪɴ ᴀ ᴄʜᴀᴛ</code>
-• /delall - <code>ᴅᴇʟᴇᴛᴇ ᴛʜᴇ ᴡʜᴏʟᴇ ꜰɪʟᴛᴇʀꜱ ɪɴ ᴀ ᴄʜᴀᴛ (ᴄʜᴀᴛ ᴏᴡɴᴇʀ ᴏɴʟʏ)</code>"""
-
-    BUTTON_TXT = """ʜᴇʟᴘ: <b>ʙᴜᴛᴛᴏɴꜱ</b>
-- ᴛʜɪꜱ ʙᴏᴛ ꜱᴜᴘᴘᴏʀᴛꜱ ʙᴏᴛʜ ᴜʀʟ ᴀɴᴅ ᴀʟᴇʀᴛ ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴꜱ.
-<b>ɴᴏᴛᴇ:</b>
-1. ᴛᴇʟᴇɢʀᴀᴍ ᴡɪʟʟ ɴᴏᴛ ᴀʟʟᴏᴡꜱ ʏᴏᴜ ᴛᴏ ꜱᴇɴᴅ ʙᴜᴛᴛᴏɴꜱ ᴡɪᴛʜᴏᴜᴛ ᴀɴʏ ᴄᴏɴᴛᴇɴᴛ, ꜱᴏ ᴄᴏɴᴛᴇɴᴛ ɪꜱ ᴍᴀɴᴅᴀᴛᴏʀʏ.
-2. ᴛʜɪꜱ ʙᴏᴛ ꜱᴜᴘᴘᴏʀᴛꜱ ʙᴜᴛᴛᴏɴꜱ ᴡɪᴛʜ ᴀɴʏ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ ᴛʏᴘᴇ.
-3. ʙᴜᴛᴛᴏɴꜱ ꜱʜᴏᴜʟᴅ ʙᴇ ᴘʀᴏᴘᴇʀʟʏ ᴘᴀʀꜱᴇᴅ ᴀꜱ ᴍᴀʀᴋᴅᴏᴡɴ ꜰᴏʀᴍᴀᴛ
-<b>ᴜʀʟ ʙᴜᴛᴛᴏɴꜱ:</b>
-<code>[Button Text](buttonurl:https://t.me/DQ_The_File_Donor_Updates)</code>
-<b>ᴀʟᴇʀᴛ ʙᴜᴛᴛᴏɴꜱ:</b>
-<code>[Button Text](buttonalert:ᴛʜɪꜱ ɪꜱ ᴀɴ ᴀʟᴇʀᴛ ᴍᴇꜱꜱᴀɢᴇ)</code>"""
-
-    AUTOFILTER_TXT = """ʜᴇʟᴘ: <b>ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ</b>
-<b>ɴᴏᴛᴇ: Fɪʟᴇ Iɴᴅᴇx</b>
-1. ᴍᴀᴋᴇ ᴍᴇ ᴛʜᴇ ᴀᴅᴍɪɴ ᴏꜰ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ɪꜰ ɪᴛ'ꜱ ᴘʀɪᴠᴀᴛᴇ.
-2. ᴍᴀᴋᴇ ꜱᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜʀ ᴄʜᴀɴɴᴇʟ ᴅᴏᴇꜱ ɴᴏᴛ ᴄᴏɴᴛᴀɪɴꜱ ᴄᴀᴍʀɪᴘꜱ, ᴘᴏʀɴ ᴀɴᴅ ꜰᴀᴋᴇ ꜰɪʟᴇꜱ.
-3. ꜰᴏʀᴡᴀʀᴅ ᴛʜᴇ ʟᴀꜱᴛ ᴍᴇꜱꜱᴀɢᴇ ᴛᴏ ᴍᴇ ᴡɪᴛʜ Qᴜᴏᴛᴇꜱ. ɪ'ʟʟ ᴀᴅᴅ ᴀʟʟ ᴛʜᴇ ꜰɪʟᴇꜱ ɪɴ ᴛʜᴀᴛ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴍʏ ᴅʙ.
-
-<b>Nᴏᴛᴇ: AᴜᴛᴏFɪʟᴛᴇʀ</b>
-1. Aᴅᴅ ᴛʜᴇ ʙᴏᴛ ᴀs ᴀᴅᴍɪɴ ᴏɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ.
-2. Usᴇ /connect ᴀɴᴅ ᴄᴏɴɴᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴛᴏ ᴛʜᴇ ʙᴏᴛ.
-3. Usᴇ /settings ᴏɴ ʙᴏᴛ's PM ᴀɴᴅ ᴛᴜʀɴ ᴏɴ AᴜᴛᴏFɪʟᴛᴇʀ ᴏɴ ᴛʜᴇ sᴇᴛᴛɪɴɢs ᴍᴇɴᴜ."""
-
-    CONNECTION_TXT = """ʜᴇʟᴘ: <b>ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ</b>
-- ᴜꜱᴇᴅ ᴛᴏ ᴄᴏɴɴᴇᴄᴛ ʙᴏᴛ ᴛᴏ ᴘᴍ ꜰᴏʀ ᴍᴀɴᴀɢɪɴɢ ꜰɪʟᴛᴇʀꜱ 
-- ɪᴛ ʜᴇʟᴘꜱ ᴛᴏ ᴀᴠᴏɪᴅ ꜱᴘᴀᴍᴍɪɴɢ ɪɴ ɢʀᴏᴜᴘꜱ.
-<b>ɴᴏᴛᴇ:</b>
-1. ᴏɴʟʏ ᴀᴅᴍɪɴꜱ ᴄᴀɴ ᴀᴅᴅ ᴀ ᴄᴏɴɴᴇᴄᴛɪᴏɴ.
-2. ꜱᴇɴᴅ <code>/ᴄᴏɴɴᴇᴄᴛ</code> ꜰᴏʀ ᴄᴏɴɴᴇᴄᴛɪɴɢ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴘᴍ
-Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
-• /connect  - <code>ᴄᴏɴɴᴇᴄᴛ ᴀ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴄʜᴀᴛ ᴛᴏ ʏᴏᴜʀ ᴘᴍ</code>
-• /disconnect  - <code>ᴅɪꜱᴄᴏɴɴᴇᴄᴛ ꜰʀᴏᴍ ᴀ ᴄʜᴀᴛ</code>
-• /connections - <code>ʟɪꜱᴛ ᴀʟʟ ʏᴏᴜʀ ᴄᴏɴɴᴇᴄᴛɪᴏɴꜱ</code>"""
-
-    EXTRAMOD_TXT = """ʜᴇʟᴘ: Exᴛʀᴀ Mᴏᴅᴜʟᴇs
-<b>ɴᴏᴛᴇ:</b>
-ᴛʜᴇꜱᴇ ᴀʀᴇ ᴛʜᴇ ᴇxᴛʀᴀ ꜰᴇᴀᴛᴜʀᴇꜱ ᴏꜰ ᴛʜɪꜱ ʙᴏᴛ
-Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
-• /id - <code>ɢᴇᴛ ɪᴅ ᴏꜰ ᴀ ꜱᴘᴇᴄɪꜰɪᴇᴅ ᴜꜱᴇʀ.</code>
-• /info  - <code>ɢᴇᴛ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀ ᴜꜱᴇʀ.</code>
-• /imdb  - <code>ɢᴇᴛ ᴛʜᴇ ꜰɪʟᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ꜰʀᴏᴍ ɪᴍᴅʙ ꜱᴏᴜʀᴄᴇ.</code>
-• /search  - <code>ɢᴇᴛ ᴛʜᴇ ꜰɪʟᴍ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ꜰʀᴏᴍ ᴠᴀʀɪᴏᴜꜱ ꜱᴏᴜʀᴄᴇꜱ.</code>"""
+    EXTRAMOD_TXT = """Help: <b>Extra Modules</b>
+<b>NOTE:</b>
+these are the extra features of CENTRAL FILTER
+<b>Commands and Usage:</b>
+• /id - <code>get id of a specified user.</code>
+• /info  - <code>get information about a user.</code>
+• /imdb  - <code>get the film information from IMDb source.</code>
+• /search  - <code>get the film information from various sources.</code>"""
 
     ADMIN_TXT = """ʜᴇʟᴘ: Aᴅᴍɪɴ Mᴏᴅs
 <b>ɴᴏᴛᴇ:</b>
@@ -150,7 +143,7 @@ Pʟᴇᴀsᴇ Cʜᴇᴄᴋ Yᴏᴜʀ Sᴘᴇʟʟɪɴɢ Iɴ <u>[Gᴏᴏɢʟᴇ.C�
 
 ꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 👇
 
-ᴇxᴀᴍᴘʟᴇ : Loki S01 or Loki S01E04 or Lucifer S03E24
+ᴇxᴀᴍᴘʟᴇ : Loki S01 or Loki S01 EP04 or Lucifer S03 EP24
 
 🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)</b>"""
 
@@ -163,13 +156,13 @@ Pʟᴇᴀsᴇ Cʜᴇᴄᴋ Yᴏᴜʀ Sᴘᴇʟʟɪɴɢ Iɴ <u>[Gᴏᴏɢʟᴇ.C�
 
     MELCOW_ENG = """<b>Hᴇʟʟᴏ {} 😍, Aɴᴅ Wᴇʟᴄᴏᴍᴇ Tᴏ {} Gʀᴏᴜᴘ ❤️
     ╾───────────────╼╾───────────────╼╾───────────────╼
-Mᴏʀᴇ ᴛʜᴀɴ 500,000+ Mᴏᴠɪᴇs / Sᴇʀɪᴇs ᴜᴘʟᴏᴀᴅᴇᴅ ɪɴ ᴏᴜʀ <a href='t.me/TeamKXBoT'>BoT</a> !!
+Mᴏʀᴇ ᴛʜᴀɴ 500,000+ Mᴏᴠɪᴇs / Sᴇʀɪᴇs ᴜᴘʟᴏᴀᴅᴇᴅ ɪɴ ᴏᴜʀ <a href='t.me/CentralFilter3bot'>BoT</a> !!
     
-‣ Sᴇᴀʀᴄʜ ɪɴ <u> <a href='www.google.com'>GOOGLE</a></u> Tᴏ Fɪɴᴅ Tʜᴇ Cᴏʀʀᴇᴄᴛ Sᴘᴇʟʟɪɴɢ ᴏғ Mᴏᴠɪᴇ ᴀɴᴅ Yᴇᴀʀ ᴏғ Rᴇʟᴇᴀsᴇ, Tʜᴇɴ Tʏᴘᴇ Tʜᴇ Cᴏᴘɪᴇᴅ Mᴏᴠɪᴇ/Sᴇʀɪᴇs Nᴀᴍᴇ Iɴ @TeamKXM Tᴏ Gᴇᴛ Tʜᴇ Fɪʟᴇs.
+‣ Sᴇᴀʀᴄʜ ɪɴ <u> <a href='www.google.com'>GOOGLE</a></u> Tᴏ Fɪɴᴅ Tʜᴇ Cᴏʀʀᴇᴄᴛ Sᴘᴇʟʟɪɴɢ ᴏғ Mᴏᴠɪᴇ ᴀɴᴅ Yᴇᴀʀ ᴏғ Rᴇʟᴇᴀsᴇ, Tʜᴇɴ Tʏᴘᴇ Tʜᴇ Cᴏᴘɪᴇᴅ Mᴏᴠɪᴇ/Sᴇʀɪᴇs Nᴀᴍᴇ Iɴ @CentralRequest Tᴏ Gᴇᴛ Tʜᴇ Fɪʟᴇs.
 
 NOTE : Sᴇᴀʀᴄʜ Oɴʟʏ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ Tᴏᴜᴄʜ Tʜᴇ Rᴇsᴜʟᴛ Tʜᴀᴛ Cᴏᴍᴇs Wɪᴛʜ Mᴏᴠɪᴇ Nᴀᴍᴇ Aʟᴏɴᴇ (Nᴏᴛ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Tʜᴀᴛ Cᴏᴍᴇs Wɪᴛʜ Yᴇᴀʀ)
 
-‣ Iғ Yᴏᴜ Dᴏ Nᴏᴛ Kɴᴏᴡ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ, <a href='https://graph.org/How-To-Request--How-To-Download-From-TeamKXM-Group-05-30'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a> 👈
+‣ Iғ Yᴏᴜ Dᴏ Nᴏᴛ Kɴᴏᴡ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ, <a href='https://telegram.dog/Central_Tutorial/12'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a> 👈
 
 ╾───────────────╼╾───────────────╼╾───────────────╼╾────
 </b>"""
@@ -177,9 +170,9 @@ NOTE : Sᴇᴀʀᴄʜ Oɴʟʏ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ Tᴏᴜᴄʜ
     OWNER_INFO =  """
 <b>⍟───[ ᴏᴡɴᴇʀ ᴅᴇᴛᴀɪʟꜱ ]───⍟
     
-• ꜰᴜʟʟ ɴᴀᴍᴇ : Kʀɪsᴛʏ கிறிஸ்டி | 🇮🇳 |
-• ᴜꜱᴇʀɴᴀᴍᴇ : @TeamKXAdmin
-• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/TeamKXAdmin'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
+• ꜰᴜʟʟ ɴᴀᴍᴇ : Thiyaku Suriya
+• ᴜꜱᴇʀɴᴀᴍᴇ : @CentralLinks_Contactbot
+• ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='t.me/CentralLinks_Contactbot'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a></b>"""
 
     REQINFO = """
 ⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠
@@ -206,7 +199,7 @@ NOTE : Sᴇᴀʀᴄʜ Oɴʟʏ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ Tᴏᴜᴄʜ
 
 ɢᴏ ᴛᴏ ɢᴏᴏɢʟᴇ ➠ ᴛʏᴘᴇ ꜱᴇʀɪᴇꜱ ɴᴀᴍᴇ ➠ ᴄᴏᴘʏ ᴄᴏʀʀᴇᴄᴛ ɴᴀᴍᴇ ➠ ᴘᴀꜱᴛᴇ ᴛʜɪꜱ ɢʀᴏᴜᴘ
 
-ᴇxᴀᴍᴘʟᴇ : Loki S01E01
+ᴇxᴀᴍᴘʟᴇ : Loki S01 EP01
 
 🚯 ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)"""
 
@@ -222,7 +215,7 @@ NOTE : Sᴇᴀʀᴄʜ Oɴʟʏ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ Tᴏᴜᴄʜ
     CAPTION = """
 <b>📂 Fɪʟᴇ ɴᴀᴍᴇ : </b> <code>{file_name}</code>
 
-<b>JOIN : @TeamKX × @KaipullaVadiveluOffl</b>"""
+<b>JOIN : @Central_Links × @CentralRequest</b>"""
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {query}
