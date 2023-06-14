@@ -624,7 +624,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         groupids = await all_connections(str(userid))
         if groupids is None:
             await query.message.edit_text(
-                "There are no active connections!! Connect to some groups first."",
+                "There are no active connections!! Connect to some groups first.",
             )
             return await query.answer(MSG_ALRT)
         buttons = []
