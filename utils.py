@@ -457,7 +457,7 @@ async def get_shortlink(chat_id, link):
     if "http" == https: #if https == "http":
         https = "https"
         link = link.replace("http", https) #replacing http to https
-    if URL == "earnwithlink.com":
+    if URL == "urlshorten.in":
         url = f'https://{URL}/shortLink'
         params = {
             "token": API,
@@ -496,7 +496,7 @@ async def get_shortlink(chat_id, link):
                             return f'https://{URL}/api?api={API}&link={link}'
         except Exception as e:
             logger.error(e)
-            if URL == 'earnwithlink.com':
+            if URL == 'urlshorten.in':
                 return f'https://{URL}/api?api={API}&url={link}'
             else:
                 return f'https://{URL}/api?api={API}&link={link}'
@@ -551,7 +551,7 @@ async def get_verify_shorted_link(num, link):
                             return f'https://{URL}/api?api={API}&link={link}'
         except Exception as e:
             logger.error(e)
-            if URL == 'earnwithlink.com':
+            if URL == 'api.shareus.in':
                 return f'https://{URL}/api?api={API}&url={link}'
             else:
                 return f'https://{URL}/api?api={API}&link={link}'
