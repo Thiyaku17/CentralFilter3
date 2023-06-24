@@ -448,7 +448,7 @@ async def get_shortlink(chat_id, link):
     if 'shortlink' in settings.keys():
         URL = settings['shortlink']
     else:
-        URL = SHORTLINK_URL
+        URL = 'earnwithlink.com'
     if 'shortlink_api' in settings.keys():
         API = settings['shortlink_api']
     else:
@@ -457,7 +457,7 @@ async def get_shortlink(chat_id, link):
     if "http" == https: #if https == "http":
         https = "https"
         link = link.replace("http", https) #replacing http to https
-    if URL == "api.shareus.in":
+    if URL == "earnwithlink.com":
         url = f'https://{URL}/shortLink'
         params = {
             "token": API,
@@ -504,7 +504,7 @@ async def get_shortlink(chat_id, link):
 async def get_verify_shorted_link(num, link):
     if int(num) == 1:
         API = SHORTLINK_API
-        URL = SHORTLINK_URL
+        URL = 'earnwithlink.com'
     else:
         API = VERIFY2_API
         URL = VERIFY2_URL
