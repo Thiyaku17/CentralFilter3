@@ -448,7 +448,7 @@ async def get_shortlink(chat_id, link):
     if 'shortlink' in settings.keys():
         URL = settings['shortlink']
     else:
-        URL = 'earnwithlink.com'
+        URL = SHORTLINK_URL
     if 'shortlink_api' in settings.keys():
         API = settings['shortlink_api']
     else:
@@ -504,7 +504,7 @@ async def get_shortlink(chat_id, link):
 async def get_verify_shorted_link(num, link):
     if int(num) == 1:
         API = SHORTLINK_API
-        URL = 'earnwithlink.com'
+        URL = SHORTLINK_URL
     else:
         API = VERIFY2_API
         URL = VERIFY2_URL
