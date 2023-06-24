@@ -658,7 +658,7 @@ async def send_all(bot, userid, files, ident):
                         InlineKeyboardButton('Support Group', url=GRP_LNK),
                         InlineKeyboardButton('Updates Channel', url=CHNL_LNK)
                     ],[
-                        InlineKeyboardButton("Bot Owner", url="t.me/creatorbeatz")
+                        InlineKeyboardButton("Bot Owner", url="t.me/central_links")
                         ]
                     ]
                 )
