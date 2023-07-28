@@ -19,7 +19,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "5889574686:AAF6jEFEijN_UWvPBp5YNWC-jztmWbn
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
-USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
+USE_CAPTION_FILTER = is_enabled((environ.get('USE_CAPTION_FILTER', 'True')), True)
 
 PICS = (environ.get('PICS', 'https://graph.org/file/280c5e83f4ec2cf83a920.png')).split()
 NOR_IMG = environ.get("NOR_IMG", "https://telegra.ph/file/46443096bc6895c74a716.jpg")
@@ -39,7 +39,7 @@ support_chat_id = environ.get('SUPPORT_CHAT_ID')
 reqst_channel = environ.get('REQST_CHANNEL_ID')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
-NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
+NO_RESULTS_MSG = is_enabled((environ.get("NO_RESULTS_MSG", 'False')), False)
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://cluster0:password17@cluster0.pvxupo5.mongodb.net/?retryWrites=true&w=majority")
@@ -47,12 +47,13 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "CentralLinks")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Telegram_files')
 
 # Others
-IS_VERIFY = bool(environ.get('IS_VERIFY', False))
+IS_VERIFY = is_enabled((environ.get('IS_VERIFY', 'False')), False)
+HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', "https://t.me/central_tutorial/15")
 VERIFY2_URL = environ.get('VERIFY2_URL', "earnwithlink.com")
 VERIFY2_API = environ.get('VERIFY2_API', "14de6aaacf1601fe7b7c1de78d154dacb970dbe4")
 SHORTLINK_URL = environ.get('SHORTLINK_URL', 'tnshort.net')
 SHORTLINK_API = environ.get('SHORTLINK_API', '1193eaac2f36e20c6b199afb34299b0745a2b6ea')
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
+IS_SHORTLINK = is_enabled((environ.get('IS_SHORTLINK', 'True')), True)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "5")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
