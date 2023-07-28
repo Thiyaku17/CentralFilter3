@@ -65,7 +65,10 @@ async def give_filter(client, message):
         if total_results == 0:
             return
         else:
-            return await message.reply_text(f"<b>Hey {message.from_user.mention}, {str(total_results)} Result are found in my database for our query {search}. Kindly add our bot and add me as admin in this group. This is support group so you can't request files here...\n\nFor Movies, Jᴏɪɴ @Central_Links</b>")
+            return await message.reply_text(
+                text=f"<b>Hey {message.from_user.mention}, {str(total_results)} Result are found in my database for our query {search}. Kindly add our bot and add me as admin in this group. This is support group so you can't request files here...\n\nFor Movies, Jᴏɪɴ @Central_Links</b>",
+                parse_mode=enums.ParseMode.HTML
+            )
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_text(bot, message):
