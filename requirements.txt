@@ -10,4 +10,5 @@ git+https://github.com/Joelkb/cinemagoer
 datetime
 pytz
 aiohttp
+aiofiles
 dnspython==2.3.0
