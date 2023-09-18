@@ -162,7 +162,7 @@ Mᴏʀᴇ ᴛʜᴀɴ 500,000+ Mᴏᴠɪᴇs / Sᴇʀɪᴇs ᴜᴘʟᴏᴀᴅᴇ�
 
 NOTE : Sᴇᴀʀᴄʜ Oɴʟʏ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Aɴᴅ Tᴏᴜᴄʜ Tʜᴇ Rᴇsᴜʟᴛ Tʜᴀᴛ Cᴏᴍᴇs Wɪᴛʜ Mᴏᴠɪᴇ Nᴀᴍᴇ Aʟᴏɴᴇ (Nᴏᴛ Tʜᴇ Mᴏᴠɪᴇ Nᴀᴍᴇ Tʜᴀᴛ Cᴏᴍᴇs Wɪᴛʜ Yᴇᴀʀ)
 
-‣ Iғ Yᴏᴜ Dᴏ Nᴏᴛ Kɴᴏᴡ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ, <a href='https://telegram.dog/Central_Tutorial/15'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a> 👈
+‣ Iғ Yᴏᴜ Dᴏ Nᴏᴛ Kɴᴏᴡ Hᴏᴡ Tᴏ Sᴇᴀʀᴄʜ, <a href='https://telegram.dog/Central_Tutorial/16'>ᴄʟɪᴄᴋ ʜᴇʀᴇ</a> 👈
 
 ╾───────────────╼╾───────────────╼╾───────────────╼╾────
 </b>"""
